@@ -1,1 +1,1 @@
-system "omxplayer $(youtube-dl -g \"http://https://www.youtube.com/watch?v=xIASaUUwklk\""
+system "omxplayer $(youtube-dl -g \"http://www.youtube.com/watch?v=xIASaUUwklk\")"
