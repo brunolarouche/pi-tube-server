@@ -15,6 +15,6 @@ end
 
 youtube_id = ask('Veuillez saisir l\'identifiant youtube du vidéo que vous désirez démarrer.')
 t1=Thread.new{ play_youtube_video youtube_id }
-t2=Thread.new{ sleep(30); `kill #{$?.pid}` }
+t2=Thread.new{ sleep(30); say "PID : #{$?.pid}" }
 t1.join
 t2.join
