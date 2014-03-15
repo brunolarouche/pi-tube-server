@@ -13,7 +13,6 @@ def play_youtube_video youtube_id
   if youtube_video_path.exist?
     system "omxplayer ../videos/#{youtube_id}"
   else
-    Highline.color = :warning
     puts ''
     say "<%= color('Identifiant invalide, veuillez s.v.p. en saisir un autre.', WARNING) %>"
   end
