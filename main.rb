@@ -15,7 +15,7 @@ def play_youtube_video youtube_id
   else
     Highline.color = :warning
     puts ''
-    say 'Identifiant invalide, veuillez s.v.p. en saisir un autre.'
+    say "<%= color('Identifiant invalide, veuillez s.v.p. en saisir un autre.', WARNING) %>"
   end
 end
 
