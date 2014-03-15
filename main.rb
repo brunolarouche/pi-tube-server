@@ -9,7 +9,14 @@ end
 def play_youtube_video youtube_id
   youtube_video_path = Pathname.new("../videos/#{youtube_id}")
   download_video YOUTUBE_URL_PREFIX + youtube_id unless youtube_video_path.exist?
-  system "omxplayer ../videos/#{youtube_id}"
+
+  if youtube_video_path.exist?
+    system "omxplayer ../videos/#{youtube_id}"
+  else
+    Highline.color = :warning
+    puts ''
+    say 'Identifiant invalide, veuillez s.v.p. en saisir un autre.'
+  end
 end
 
 loop do
