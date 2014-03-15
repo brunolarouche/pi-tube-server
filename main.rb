@@ -16,6 +16,9 @@ end
 loop do
   puts ''
   puts ''
+  puts ''
   youtube_id = ask 'Veuillez saisir l\'identifiant youtube du vidéo que vous désirez démarrer.'
+  puts ''
+  puts 'Vidéo en chargement, veuillez patienter...'
   play_youtube_video youtube_id
 end
