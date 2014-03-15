@@ -1,7 +1,6 @@
 require 'highline/import'
 
 YOUTUBE_URL_PREFIX = "http://www.youtube.com/watch?v="
-WARNING_COLOR = "BOLD"
 
 def download_video url
   system "youtube-dl -o \"../videos/%(id)s\" #{url}"
@@ -15,7 +14,7 @@ def play_youtube_video youtube_id
     system "omxplayer ../videos/#{youtube_id}"
   else
     puts ''
-    say "<%= color('Identifiant invalide, veuillez s.v.p. en saisir un autre.', #{WARNING_COLOR}) %>"
+    say "<%= color('Identifiant invalide, veuillez s.v.p. en saisir un autre.', YELLOW) %>"
   end
 end
 
