@@ -11,10 +11,11 @@ def play_youtube_video youtube_id
   download_video YOUTUBE_URL_PREFIX + youtube_id unless youtube_video_path.exist?
 
   if youtube_video_path.exist?
+    say "<%= color('Démarrage de la lecture du vidéo.', BOLD, GREEN) %>"
     system "omxplayer ../videos/#{youtube_id}"
   else
     puts ''
-    say "<%= color('Identifiant invalide, veuillez s.v.p. en saisir un autre.', YELLOW) %>"
+    say "<%= color('Identifiant invalide, veuillez s.v.p. en saisir un autre.', BOLD, YELLOW) %>"
   end
 end
 
@@ -22,8 +23,8 @@ loop do
   puts ''
   puts ''
   puts ''
-  youtube_id = ask 'Veuillez saisir l\'identifiant youtube du vidéo que vous désirez démarrer.'
+  youtube_id = ask "<%= color('Veuillez saisir l\\'identifiant youtube du vidéo que vous désirez démarrer.', BOLD) %>"
   puts ''
-  puts 'Vidéo en chargement, veuillez patienter...'
+  say "<%= color('Vidéo en chargement, veuillez patienter...', BOLD) %>"
   play_youtube_video youtube_id
 end
