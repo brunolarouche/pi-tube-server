@@ -14,8 +14,8 @@ def play_youtube_video youtube_id
 end
 
 loop do
-  say ''
-  say ''
+  puts ''
+  puts ''
   youtube_id = ask 'Veuillez saisir l\'identifiant youtube du vidéo que vous désirez démarrer.'
   play_youtube_video youtube_id
 end
