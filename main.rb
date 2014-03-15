@@ -1,7 +1,7 @@
 require 'highline/import'
 
 YOUTUBE_URL_PREFIX = "http://www.youtube.com/watch?v="
-WARNING_COLOR = "F8EF00"
+WARNING_COLOR = "Yellow"
 
 def download_video url
   system "youtube-dl -o \"../videos/%(id)s\" #{url}"
