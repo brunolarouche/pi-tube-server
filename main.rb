@@ -12,6 +12,5 @@ def play_youtube_video youtube_id
   system "omxplayer ../videos/#{youtube_id}"
 end
 
-ask('Veuillez saisir l\'identifiant youtube du vidéo que vous désirez démarrer.') do |youtube_id|
-  play_youtube_video youtube_id
-end
+youtube_id = ask('Veuillez saisir l\'identifiant youtube du vidéo que vous désirez démarrer.')
+play_youtube_video youtube_id
