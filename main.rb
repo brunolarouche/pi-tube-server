@@ -11,7 +11,9 @@ def play_youtube_video youtube_id
   download_video YOUTUBE_URL_PREFIX + youtube_id unless youtube_video_path.exist?
 
   if youtube_video_path.exist?
+    puts ''
     say "<%= color('Démarrage de la lecture du vidéo.', BOLD, GREEN) %>"
+    puts ''
     system "omxplayer ../videos/#{youtube_id}"
   else
     puts ''
