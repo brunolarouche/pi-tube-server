@@ -1,6 +1,7 @@
 # _Pi Tube Server_
 
 [![Code Climate](https://codeclimate.com/github/brunolarouche/pi-tube-server.png)](https://codeclimate.com/github/brunolarouche/pi-tube-server)
+
 _Description: Let you play Youtube videos in the Raspberry Pi console.
 
 ## Project Setup
