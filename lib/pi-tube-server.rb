@@ -6,10 +6,12 @@ require_relative 'pi-tube-server/console_helper'
 require_relative 'pi-tube-server/youtube_player'
 
 loop do
-  puts ''
-  puts ''
-  youtube_id = ask ConsoleHelper.message_with_style("Veuillez saisir l'identifiant youtube du vidéo que vous désirez démarrer.")
-  puts ''
-  ConsoleHelper.say_with_style 'Vidéo en chargement, veuillez patienter...'
-  YoutubePlayer.play_video youtube_id
+  puts ""
+  puts ""
+
+  choose do |menu|
+    menu.prompt = "Choose an option above"
+
+    menu.choice("Play Youtube video with an Youtube video ID") { YoutubePlayer.ask_about_a_video_to_play }
+  end
 end

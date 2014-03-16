@@ -2,7 +2,7 @@ require 'highline/import'
 
 class ConsoleHelper
   class << self
-    def message_with_style message, color = 'WHITE', bold = true
+    def message_with_style message, color = 'WHITE', bold = false
       message = prepare_message message
       message = "<%= color('#{message}'"
       message += ", #{color}"
@@ -20,7 +20,7 @@ class ConsoleHelper
     private
 
     def prepare_message message
-      message.sub "'", "''"
+      message.sub "'", "\\\\'"
     end
   end
 end
