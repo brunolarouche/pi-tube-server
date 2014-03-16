@@ -20,4 +20,4 @@ Just run pi-tube-server, and enjoy.
 
 ## License
 
-MIT
+MIT, see the LICENSE file for more details.
