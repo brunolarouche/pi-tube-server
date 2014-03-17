@@ -4,8 +4,10 @@ class Video
   YOUTUBE_FILE_PATH_PREFIX = "#{VIDEO_FILE_PATH_PREFIX}youtube/"
 
   class << self
-    def get_all
-      Dir["#{VIDEO_FILE_PATH_PREFIX}**/*"].collect { |file_path| self.new file_path }
+    def ask_what_video_to_play_and_play
+      video_url = ask ConsoleHelper.message_with_style("Input the Youtube/Vimeo URL of the video you want to play")
+      video = create_from_url video_url.to_s
+      video.prepare_and_play video_url
     end
 
     def create_from_url url
@@ -22,10 +24,8 @@ class Video
       end
     end
 
-    def ask_what_video_to_play_and_play
-      video_url = ask ConsoleHelper.message_with_style("Input the Youtube/Vimeo URL of the video you want to play")
-      video = create_from_url video_url.to_s
-      video.prepare_and_play video_url
+    def get_all
+      Dir["#{VIDEO_FILE_PATH_PREFIX}**/*"].collect { |file_path| self.new file_path }
     end
   end
 
@@ -33,14 +33,14 @@ class Video
     @file_path = file_path
   end
 
+  def file_path_exist?
+    video_path = Pathname.new @file_path
+    video_path.exist?
+  end
+
   def prepare_and_play url
     prepare_video url
     play
-  end
-
-  def file_path_exist?
-    video_path = Pathname.new(@file_path)
-    video_path.exist?
   end
 
   protected
@@ -50,7 +50,7 @@ class Video
   end
 
   def play
-    if (file_path_exist?)
+    if file_path_exist?
       ConsoleHelper.say_with_style 'Video playing!', 'GREEN'
       puts ''
       system "omxplayer #{@file_path}"
